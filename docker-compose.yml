@@ -1,0 +1,34 @@
+version: '2'
+services:
+  no_debug_no_zts:
+    build:
+      context: .
+      args:
+        - BUILD_NAME=no-zts-no-debug
+    environment:
+      - ENABLE_MAINTAINER_ZTS=0
+      - ENABLE_DEBUG=0
+  debug_no_zts:
+    build:
+      context: .
+      args:
+        - BUILD_NAME=no-zts-debug
+    environment:
+      - ENABLE_MAINTAINER_ZTS=0
+      - ENABLE_DEBUG=1
+  no_debug_zts:
+    build:
+      context: .
+      args:
+        - BUILD_NAME=zts-no-debug
+    environment:
+      - ENABLE_MAINTAINER_ZTS=1
+      - ENABLE_DEBUG=0
+  debug_zts:
+    build:
+      context: .
+      args:
+        - BUILD_NAME=zts-debug
+    environment:
+      - ENABLE_MAINTAINER_ZTS=1
+      - ENABLE_DEBUG=1
